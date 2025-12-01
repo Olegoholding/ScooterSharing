@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="ScooterSharing.UserControls.ScooterCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ScooterSharing.UserControls"
+             mc:Ignorable="d" 
+             Height="150" MinWidth="150" MaxWidth="200">
+    <Border Margin="10" Padding="5" Background="{DynamicResource Accent}" CornerRadius="15">
+        <Border.Effect>
+            <DropShadowEffect Direction="0" ShadowDepth="0" Color="#66000000"/>
+        </Border.Effect>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Background="{DynamicResource Scooter}"  CornerRadius="10" Margin="0,0,0,5">
+                <Grid>
+                    <TextBlock x:Name="idText" Text="#1" FontSize="20" Margin="5,2,5,5" FontWeight="Bold" Foreground="{DynamicResource Accent}"/>
+                    <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
+                        <Canvas Width="50" Height="50">
+                            <Path Fill="{DynamicResource Accent}"
+                              Data="M9 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-.39l1.4 7a2.5 2.5 0 1 1-.98.195l-.189-.938l-2.43 3.527A.5.5 0 0 1 9.5 13H4.95a2.5 2.5 0 1 1 0-1h4.287l2.831-4.11L11.09 3H9.5a.5.5 0 0 1-.5-.5M3.915 12a1.5 1.5 0 1 0 0 1H2.5a.5.5 0 0 1 0-1zm8.817-.789A1.499 1.499 0 0 0 13.5 14a1.5 1.5 0 0 0 .213-2.985l.277 1.387a.5.5 0 0 1-.98.196z" Height="35" Stretch="Fill" Width="37" Canvas.Left="6.5" Canvas.Top="7.5"/>
+                        </Canvas>
+                    </Viewbox>
+                </Grid>
+            </Border>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
+                    <Canvas Width="50" Height="50">
+                        <Path Fill="{DynamicResource Foreground}" 
+          Data="M9 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-.39l1.4 7a2.5 2.5 0 1 1-.98.195l-.189-.938l-2.43 3.527A.5.5 0 0 1 9.5 13H4.95a2.5 2.5 0 1 1 0-1h4.287l2.831-4.11L11.09 3H9.5a.5.5 0 0 1-.5-.5M3.915 12a1.5 1.5 0 1 0 0 1H2.5a.5.5 0 0 1 0-1zm8.817-.789A1.499 1.499 0 0 0 13.5 14a1.5 1.5 0 0 0 .213-2.985l.277 1.387a.5.5 0 0 1-.98.196z" Height="35" Stretch="Uniform" Width="37" Canvas.Left="6.5" Canvas.Top="7.5"/>
+                    </Canvas>
+                </Viewbox>
+                <TextBlock x:Name="scooterText" Text="Самокат" FontWeight="Thin" Margin="5,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
+                    <Canvas Width="50" Height="50">
+                        <Path Fill="{DynamicResource Foreground}" 
+Data="M34.434 26.066h10.664c3 0 4.476-1.5 4.476-4.593V10.996c0-3.094-1.476-4.57-4.476-4.57H34.434c-2.977 0-4.477 1.476-4.477 4.57v10.477c0 3.093 1.5 4.593 4.477 4.593m-23.532 0H21.59c2.976 0 4.476-1.5 4.476-4.593V10.996c0-3.094-1.5-4.57-4.476-4.57H10.902c-2.976 0-4.476 1.476-4.476 4.57v10.477c0 3.093 1.5 4.593 4.476 4.593m.047-3.304c-.82 0-1.219-.422-1.219-1.29V10.997c0-.844.399-1.266 1.22-1.266h10.57c.82 0 1.242.422 1.242 1.266v10.477c0 .867-.422 1.289-1.242 1.289Zm23.531 0c-.82 0-1.218-.422-1.218-1.29V10.997c0-.844.398-1.266 1.218-1.266h10.594c.797 0 1.196.422 1.196 1.266v10.477c0 .867-.399 1.289-1.196 1.289Zm-20.25-4.055h4.008c.352 0 .492-.14.492-.539v-3.89c0-.376-.14-.516-.492-.516H14.23c-.351 0-.445.14-.445.515v3.891c0 .398.094.54.445.54m23.672 0h3.985c.351 0 .492-.14.492-.539v-3.89c0-.376-.14-.516-.492-.516h-3.985c-.351 0-.468.14-.468.515v3.891c0 .398.117.54.468.54m-27 30.867H21.59c2.976 0 4.476-1.476 4.476-4.57v-10.5c0-3.07-1.5-4.57-4.476-4.57H10.902c-2.976 0-4.476 1.5-4.476 4.57v10.5c0 3.094 1.5 4.57 4.476 4.57m20.625-13.57h4.008c.352 0 .492-.14.492-.54v-3.89c0-.375-.14-.515-.492-.515h-4.008c-.351 0-.445.14-.445.515v3.89c0 .4.094.54.445.54m12.446 0h4.007c.352 0 .493-.14.493-.54v-3.89c0-.375-.141-.515-.493-.515h-4.007c-.352 0-.47.14-.47.515v3.89c0 .4.118.54.47.54M10.949 46.27c-.82 0-1.219-.422-1.219-1.266V34.527c0-.867.399-1.289 1.22-1.289h10.57c.82 0 1.242.422 1.242 1.29v10.476c0 .844-.422 1.266-1.242 1.266Zm3.281-4.032h4.008c.352 0 .492-.14.492-.562v-3.867c0-.375-.14-.516-.492-.516H14.23c-.351 0-.445.14-.445.516v3.867c0 .422.094.562.445.562m23.579 0h4.007c.352 0 .492-.14.492-.562v-3.867c0-.375-.14-.516-.492-.516h-4.008c-.351 0-.445.14-.445.516v3.867c0 .422.094.562.446.562m-6.282 6.211h4.008c.352 0 .492-.14.492-.539v-3.89c0-.376-.14-.516-.492-.516h-4.008c-.351 0-.445.14-.445.516v3.89c0 .399.094.54.445.54m12.446 0h4.007c.352 0 .493-.14.493-.539v-3.89c0-.376-.141-.516-.493-.516h-4.007c-.352 0-.47.14-.47.516v3.89c0 .399.118.54.47.54" Height="35" Stretch="Fill" Width="37" Canvas.Left="6.5" Canvas.Top="7.5"/>
+                    </Canvas>
+                </Viewbox>
+                <TextBlock x:Name="numberText" Text="42SDF34" FontWeight="Thin" Margin="5,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
+                    <Canvas Width="50" Height="50">
+                        <Path Fill="{DynamicResource Foreground}" 
+Data="M256 1024V256h896v768zm1920-704q53 0 90.5 37.5T2304 448v384q0 53-37.5 90.5T2176 960v160q0 66-47 113t-113 47H160q-66 0-113-47T0 1120V160Q0 94 47 47T160 0h1856q66 0 113 47t47 113zm0 512V448h-128V160q0-14-9-23t-23-9H160q-14 0-23 9t-9 23v960q0 14 9 23t23 9h1856q14 0 23-9t9-23V832z" Height="35" Stretch="Uniform" Width="37" Canvas.Left="6.5" Canvas.Top="7.5" RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-90"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Canvas>
+                </Viewbox>
+                <TextBlock x:Name="batareyText" Text="100%" FontWeight="Thin" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
