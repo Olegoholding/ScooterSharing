@@ -15,14 +15,17 @@
               ShadowDepth="0" />
         </Border.Effect>
 
-
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition />
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+ 
 
             </Grid.RowDefinitions>
+            
             <Border Background="{DynamicResource Address}"  CornerRadius="10" Margin="0,0,0,5">
                 <Grid>
                     <TextBlock x:Name="idText" Text="#1" FontSize="28" Margin="5,2,5,5" FontWeight="Bold" Foreground="{DynamicResource Accent}"/>
@@ -43,6 +46,7 @@
                 </Viewbox>
                 <TextBlock x:Name="addressText" Text="Адрес" FontWeight="Thin" FontSize="16" Margin="5,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
+
             <StackPanel Orientation="Horizontal" Grid.Row="2">
                 <Viewbox Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Canvas Width="50" Height="50">
@@ -52,16 +56,44 @@ Data="M9 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-.39l1.4 7a2.5 2.5 0 1 1-.98.195l
                 </Viewbox>
                 <TextBlock x:Name="countText" FontSize="16" Text="9/10" FontWeight="Thin" Margin="5,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
-            
-            <Border Grid.Row="3" HorizontalAlignment="Right" Background="Transparent" VerticalAlignment="Center" Cursor="Hand">
+            <Border  Grid.Row="2" HorizontalAlignment="Right" Background="Transparent" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="Border_MouseLeftButtonUp">
                 <Viewbox Width="30" Height="30"  >
                     <Canvas Width="50" Height="50">
-                        <Path Fill="{DynamicResource Foreground}" StrokeThickness="6" Stroke="Black" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
-    Data="M12 20v-8m0 0V4m0 8h8m-8 0H4" Height="35" Stretch="Uniform" Width="37" Canvas.Left="6.5" Canvas.Top="7.5"/>
+                        <Path Fill="{DynamicResource Foreground}" StrokeThickness="1" Stroke="Black" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+    Data="M2 12a2 2 0 1 1 4 0a2 2 0 0 1-4 0m8 0a2 2 0 1 1 4 0a2 2 0 0 1-4 0m8 0a2 2 0 1 1 4 0a2 2 0 0 1-4 0" Height="35" Stretch="Uniform" Width="37" Canvas.Left="6.5" Canvas.Top="7.5"/>
                     </Canvas>
                 </Viewbox>
             </Border>
-            
+
+            <StackPanel x:Name="ScooterPanel" Grid.Row="3" Visibility="Collapsed">
+                <Border  Background="{DynamicResource Foreground2}" Margin="5" Height="1"/>
+                <TextBlock Text="Самокаты:" FontSize="16" Margin="5,0,0,0" FontWeight="Bold"/>
+                <StackPanel x:Name="CurrentScootersPanel" Margin="15,5,0,5"/>
+            </StackPanel>
+
+            <StackPanel x:Name="AddScooterPanel" Grid.Row="4" Visibility="Collapsed">
+                <Border Background="{DynamicResource Foreground2}" Margin="5" Height="1"/>
+                <TextBlock Text="Добавить самокат" FontSize="16" Margin="5,0,0,0" FontWeight="Bold"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ComboBox Name="AddNewScooterComboBox" Style="{DynamicResource ComboBoxStyle1}" FontSize="20" BorderThickness="0" VerticalContentAlignment="Center"/>
+                    <Border Width="1" Background="{DynamicResource Foreground2}" Margin="0,8,0,8" HorizontalAlignment="Right"/>
+                    <Border x:Name="AddNewScooterButton" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Right" Background="Transparent" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="AddNewScooterButton_MouseLeftButtonUp">
+                        <Viewbox Width="30" Height="30"  >
+                            <Canvas Width="50" Height="50">
+                                <Path Fill="{DynamicResource Foreground}" StrokeThickness="6" Stroke="Black" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+Data="M12 20v-8m0 0V4m0 8h8m-8 0H4" Height="35" Stretch="Uniform" Width="37" Canvas.Left="6.5" Canvas.Top="7.5"/>
+                            </Canvas>
+                        </Viewbox>
+                    </Border>
+                </Grid>
+            </StackPanel>
+
+
         </Grid>
     </Border>
 </UserControl>

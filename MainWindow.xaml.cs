@@ -17,10 +17,6 @@ namespace ScooterSharing
             InitializeComponent();
             stackPanels = [scootersBlock, pointsBlock, tarifsBlock];
             Scooters.IsChecked = true;
-
-            wrapPanel.Children.Add(new AddressCard(1.ToString(), "dwed",4.ToString(), 12.ToString()));
-            wrapPanel.Children.Add(new ScooterCard(1.ToString(), "dwed",4.ToString(), 12.ToString()));
-            wrapPanel.Children.Add(new TarifCard(1.ToString(), "dwed", "sqd"));
         }
 
         private void Checked(object sender, RoutedEventArgs e)
