@@ -5,23 +5,28 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ScooterSharing.UserControls"
              mc:Ignorable="d" 
-             Height="150" MinWidth="150" MaxWidth="200">
+             Height="200" MinWidth="200" MaxWidth="250">
     <Border Margin="10" Padding="5" Background="{DynamicResource Accent}" CornerRadius="15">
         <Border.Effect>
-            <DropShadowEffect Direction="0" ShadowDepth="0" Color="#66000000"/>
+            <DropShadowEffect
+              Color="Black"
+              Opacity="0.25"
+              BlurRadius="15"
+              ShadowDepth="0" />
         </Border.Effect>
+
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="70"/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
 
             </Grid.RowDefinitions>
             <Border Background="{DynamicResource Address}"  CornerRadius="10" Margin="0,0,0,5">
                 <Grid>
-                    <TextBlock x:Name="idText" Text="#1" FontSize="20" Margin="5,2,5,5" FontWeight="Bold" Foreground="{DynamicResource Accent}"/>
-                    <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
+                    <TextBlock x:Name="idText" Text="#1" FontSize="28" Margin="5,2,5,5" FontWeight="Bold" Foreground="{DynamicResource Accent}"/>
+                    <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" >
                         <Canvas Width="50" Height="50">
                             <Path Fill="{DynamicResource Accent}"
                               Data="M13 0a6 6 0 0 0-6 6c0 3.314 5.219 11.543 5.219 16h1.562C13.781 17.558 19 9.044 19 6a6 6 0 0 0-6-6m0 3a3 3 0 1 1 0 6a3 3 0 0 1 0-6M6.844 17.281a1 1 0 0 0-.063.032c-1.845.324-3.409.768-4.593 1.375c-.593.303-1.104.662-1.5 1.093c-.397.432-.688.993-.688 1.625c0 .948.628 1.689 1.375 2.219c.747.53 1.69.935 2.844 1.281C6.524 25.598 9.605 26 13 26c3.395 0 6.476-.402 8.781-1.094c1.153-.346 2.097-.75 2.844-1.281c.747-.53 1.375-1.271 1.375-2.219c0-.634-.29-1.224-.688-1.656c-.398-.432-.904-.759-1.5-1.063c-1.19-.607-2.769-1.051-4.625-1.375a1 1 0 1 0-.343 1.97c1.723.3 3.155.725 4.062 1.187c.454.23.773.477.938.656c.165.179.156.25.156.281c0 .047-.064.263-.531.594c-.467.331-1.263.694-2.282 1c-2.037.611-4.955 1-8.187 1c-3.232 0-6.15-.389-8.188-1c-1.018-.306-1.814-.669-2.28-1c-.468-.331-.532-.547-.532-.594c0-.03-.007-.103.156-.281c.164-.178.487-.426.938-.656c.9-.461 2.318-.886 4.031-1.188a1.01 1.01 0 1 0-.281-2" Height="35" Stretch="Uniform" Width="37" Canvas.Left="6.5" Canvas.Top="7.5"/>
@@ -30,26 +35,33 @@
                 </Grid>
             </Border>
             <StackPanel Orientation="Horizontal" Grid.Row="1">
-                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
+                <Viewbox Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Canvas Width="50" Height="50">
                         <Path Fill="{DynamicResource Foreground}" 
           Data="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6a3 3 0 0 1 0 6" Height="35" Stretch="Uniform" Width="37" Canvas.Left="6.5" Canvas.Top="7.5"/>
                     </Canvas>
                 </Viewbox>
-                <TextBlock x:Name="addressText" Text="Адрес" FontWeight="Thin" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock x:Name="addressText" Text="Адрес" FontWeight="Thin" FontSize="16" Margin="5,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Row="2">
-                <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand">
+                <Viewbox Width="40" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Canvas Width="50" Height="50">
                         <Path Fill="{DynamicResource Foreground}" 
 Data="M9 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-.39l1.4 7a2.5 2.5 0 1 1-.98.195l-.189-.938l-2.43 3.527A.5.5 0 0 1 9.5 13H4.95a2.5 2.5 0 1 1 0-1h4.287l2.831-4.11L11.09 3H9.5a.5.5 0 0 1-.5-.5M3.915 12a1.5 1.5 0 1 0 0 1H2.5a.5.5 0 0 1 0-1zm8.817-.789A1.499 1.499 0 0 0 13.5 14a1.5 1.5 0 0 0 .213-2.985l.277 1.387a.5.5 0 0 1-.98.196z" Height="35" Stretch="Uniform" Width="37" Canvas.Left="6.5" Canvas.Top="7.5"/>
                     </Canvas>
                 </Viewbox>
-                <TextBlock x:Name="countText" Text="9/10" FontWeight="Thin" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock x:Name="countText" FontSize="16" Text="9/10" FontWeight="Thin" Margin="5,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
-
-            <TextBlock x:Name="addScooters" Grid.Row="3" Cursor="Hand" HorizontalAlignment="Right" Text="+" FontWeight="Bold" VerticalAlignment="Center" FontSize="20"/>
-
+            
+            <Border Grid.Row="3" HorizontalAlignment="Right" Background="Transparent" VerticalAlignment="Center" Cursor="Hand">
+                <Viewbox Width="30" Height="30"  >
+                    <Canvas Width="50" Height="50">
+                        <Path Fill="{DynamicResource Foreground}" StrokeThickness="6" Stroke="Black" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
+    Data="M12 20v-8m0 0V4m0 8h8m-8 0H4" Height="35" Stretch="Uniform" Width="37" Canvas.Left="6.5" Canvas.Top="7.5"/>
+                    </Canvas>
+                </Viewbox>
+            </Border>
+            
         </Grid>
     </Border>
 </UserControl>

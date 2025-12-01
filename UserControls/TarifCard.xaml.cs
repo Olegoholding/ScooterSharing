@@ -23,7 +23,7 @@ namespace ScooterSharing.UserControls
         public TarifCard(string id, string tarif, string price)
         {
             InitializeComponent();
-            idText.Text = id;
+            idText.Text = '#' + id;
             tarifText.Text = tarif;
             priceText.Text = price + " руб/мес";
         }
