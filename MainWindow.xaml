@@ -14,9 +14,9 @@
 
         <Border Background="{DynamicResource Accent}" Margin="15" CornerRadius="30">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <RadioButton x:Name="Scooters" Style="{DynamicResource radioButton}" Content="Самокаты" Checked="Checked"/>
-                <RadioButton x:Name="Points" Style="{DynamicResource radioButton}" Content="Точки" Checked="Checked"/>
-                <RadioButton x:Name="Tarifs" Style="{DynamicResource radioButton}" Content="Тарифы" Checked="Checked"/>
+                <RadioButton Tag="Самокаты" x:Name="Scooters" Style="{DynamicResource radioButton}" Content="Самокаты" Checked="CheckedScooters"/>
+                <RadioButton Tag="Точки" x:Name="Points" Style="{DynamicResource radioButton}" Content="Точки" Checked="CheckedPoints" Cursor="Hand"/>
+                <RadioButton Tag="Тарифы" x:Name="Tarifs" Style="{DynamicResource radioButton}" Content="Тарифы" Checked="CheckedTariffs"/>
             </StackPanel>
         </Border>
 
@@ -32,7 +32,7 @@
 
             <StackPanel Margin="15,0,15,10">
                 <Border Background="{DynamicResource Accent}" Height="20" CornerRadius="10,10,0,0" Width="150" HorizontalAlignment="Left" Margin="30,0,0,0">
-                    <TextBlock FontSize="14" Text="Название самоката" Foreground="{DynamicResource Foreground2}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <TextBlock Name="SrcLbl" FontSize="14" Text="Название самоката" Foreground="{DynamicResource Foreground2}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Border>
 
                 <Border Background="{DynamicResource Accent}" Height="40" CornerRadius="15">
@@ -42,7 +42,7 @@
                             <ColumnDefinition Width="40"/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBox FontSize="20" BorderThickness="0" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
+                        <TextBox Name="SrcBox"  FontSize="20" BorderThickness="0" VerticalContentAlignment="Center" Margin="15,0,0,0"/>
                         <Border Width="1" Background="{DynamicResource Foreground2}" Margin="0,8,0,8" HorizontalAlignment="Right"/>
                         <TextBlock Name="searchButton" MouseLeftButtonDown="SearchButton_MouseLeftButtonDown" Cursor="Hand" Grid.Column="1" FontSize="26" Text="⌕" Foreground="{DynamicResource Foreground}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Grid>
@@ -65,7 +65,7 @@
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <ComboBox Style="{DynamicResource ComboBoxStyle1}" FontSize="20" BorderThickness="0" VerticalContentAlignment="Center"/>
+                        <ComboBox Name="DltComboBox" Style="{DynamicResource ComboBoxStyle1}" FontSize="20" BorderThickness="0" VerticalContentAlignment="Center"/>
                         <Border Width="1" Background="{DynamicResource Foreground2}" Margin="0,8,0,8" HorizontalAlignment="Right"/>
                         <TextBlock x:Name="deleteButton" MouseLeftButtonDown="DeleteButton_MouseLeftButtonDown" Cursor="Hand" Grid.Column="1" FontSize="20" Text="Удалить" Foreground="{DynamicResource Foreground}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="15,0,15,0"/>
                     </Grid>
@@ -82,8 +82,6 @@
                         
                         <StackPanel Margin="15,15,15,0" x:Name="stackPanel">
                             <StackPanel x:Name="scootersBlock">
-                                <TextBlock Text="Название" FontSize="20"/>
-                                <TextBox x:Name="scooterName" FontSize="20" Margin="0,0,0,10"/>
                                 <TextBlock Text="Номер" FontSize="20"/>
                                 <TextBox x:Name="scooterNumber" FontSize="20" Margin="0,0,0,10"/>
                                 <TextBlock Text="Заряд" FontSize="20"/>

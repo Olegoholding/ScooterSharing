@@ -1,24 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ScooterSharing.Back;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ScooterSharing.UserControls
 {
-    /// <summary>
-    /// Логика взаимодействия для AddressCard.xaml
-    /// </summary>
     public partial class AddressCard : UserControl
     {
 
@@ -28,14 +15,37 @@ namespace ScooterSharing.UserControls
         bool simpleMod = true;
         const double SimpleHeight = 200;
         const double ExpandedHeight = double.NaN;
+        int Address;
+        int Scooter;
 
-        public AddressCard(string id, string address, string count, string maxCount)
+        DataTable DtScooters;
+        public AddressCard(int id, string address, string maxCount)
         {
             InitializeComponent();
-            idText.Text = '#' + id;
-            addressText.Text = address;
-            countText.Text = count + '/' + maxCount;
+            int i = 0;
+            idText.Text = '#' + id.ToString();
+            NameText.Text = address;
+
+            DtScooters = new DatabaseInteraction().GetData(@"SELECT Самокаты.Номер, Самокаты.НомерСамоката FROM Самокаты 
+            LEFT JOIN ПривязкаСамокатов ON Самокаты.Номер = ПривязкаСамокатов.Самокат
+            WHERE ПривязкаСамокатов.Самокат IS NULL;");
+            foreach (DataRow row in DtScooters.Rows)
+            {
+                AddNewScooterComboBox.Items.Add(new TextBlock() { Text = row["НомерСамоката"].ToString(), Uid = row["Номер"].ToString() });
+            }
+            DtScooters = new DatabaseInteraction().GetData($@"SELECT Самокаты.НомерСамоката, ПривязкаСамокатов.Адрес FROM ПривязкаСамокатов 
+            JOIN Самокаты ON Самокаты.Номер = ПривязкаСамокатов.Самокат
+            JOIN Точки ON ПривязкаСамокатов.Адрес = Точки.Номер
+            WHERE Точки.Адрес = '{address}'");
+            foreach (DataRow row in DtScooters.Rows)
+            {
+                CurrentScootersPanel.Children.Add(new TextBlock() { Text = row["НомерСамоката"].ToString()});
+                Address = Convert.ToInt16(row["Адрес"]);
+                i++;
+            }
+            countText.Text = i.ToString() + '/' + maxCount;
         }
+        private void AddNewScooterButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e) => new DatabaseInteraction().DoCommand($"INSERT INTO ПривязкаСамокатов (Самокат, Адрес) VALUES('{Scooter}', '{Address}');");
         private void Border_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (simpleMod)
@@ -53,10 +63,12 @@ namespace ScooterSharing.UserControls
                 simpleMod = true;
             }
         }
-
-        private void AddNewScooterButton_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void AddNewScooterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if(AddNewScooterComboBox.SelectedItem is TextBlock item)
+            {
+                Scooter = Convert.ToInt16(item.Uid);
+            }
         }
     }
 }

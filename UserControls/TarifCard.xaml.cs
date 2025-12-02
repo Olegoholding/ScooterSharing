@@ -1,31 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
 namespace ScooterSharing.UserControls
 {
-    /// <summary>
-    /// Логика взаимодействия для TarifCard.xaml
-    /// </summary>
     public partial class TarifCard : UserControl
     {
-        public TarifCard(string id, string tarif, string price)
+        public TarifCard(int id, string tarif, string price)
         {
             InitializeComponent();
-            idText.Text = '#' + id;
-            tarifText.Text = tarif;
-            priceText.Text = price + " руб/мес";
+            idText.Text = '#' + id.ToString();
+            NameText.Text = tarif;
+            priceText.Text = price + " руб/поездка";
         }
     }
 }

@@ -44,7 +44,7 @@
           Data="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6a3 3 0 0 1 0 6" Height="35" Stretch="Uniform" Width="37" Canvas.Left="6.5" Canvas.Top="7.5"/>
                     </Canvas>
                 </Viewbox>
-                <TextBlock x:Name="addressText" Text="Адрес" FontWeight="Thin" FontSize="16" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock x:Name="NameText" Text="Адрес" FontWeight="Thin" FontSize="16" Margin="5,0,0,0" VerticalAlignment="Center"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Grid.Row="2">
@@ -80,9 +80,9 @@ Data="M9 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-.39l1.4 7a2.5 2.5 0 1 1-.98.195l
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <ComboBox Name="AddNewScooterComboBox" Style="{DynamicResource ComboBoxStyle1}" FontSize="20" BorderThickness="0" VerticalContentAlignment="Center"/>
+                    <ComboBox Name="AddNewScooterComboBox" Style="{DynamicResource ComboBoxStyle1}" FontSize="20" BorderThickness="0" VerticalContentAlignment="Center" SelectionChanged="AddNewScooterComboBox_SelectionChanged"/>
                     <Border Width="1" Background="{DynamicResource Foreground2}" Margin="0,8,0,8" HorizontalAlignment="Right"/>
-                    <Border x:Name="AddNewScooterButton" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Right" Background="Transparent" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="AddNewScooterButton_MouseLeftButtonUp">
+                    <Border x:Name="AddNewScooterButton" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Right" Background="Transparent" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="AddNewScooterButton_MouseLeftButtonUp" >
                         <Viewbox Width="30" Height="30"  >
                             <Canvas Width="50" Height="50">
                                 <Path Fill="{DynamicResource Foreground}" StrokeThickness="6" Stroke="Black" StrokeStartLineCap="Round" StrokeEndLineCap="Round"
