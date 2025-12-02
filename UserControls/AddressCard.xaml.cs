@@ -25,6 +25,7 @@ namespace ScooterSharing.UserControls
             int i = 0;
             idText.Text = '#' + id.ToString();
             NameText.Text = address;
+            Address = id;
 
             DtScooters = new DatabaseInteraction().GetData(@"SELECT Самокаты.Номер, Самокаты.НомерСамоката FROM Самокаты 
             LEFT JOIN ПривязкаСамокатов ON Самокаты.Номер = ПривязкаСамокатов.Самокат
@@ -40,7 +41,6 @@ namespace ScooterSharing.UserControls
             foreach (DataRow row in DtScooters.Rows)
             {
                 CurrentScootersPanel.Children.Add(new TextBlock() { Text = row["НомерСамоката"].ToString()});
-                Address = Convert.ToInt16(row["Адрес"]);
                 i++;
             }
             countText.Text = i.ToString() + '/' + maxCount;

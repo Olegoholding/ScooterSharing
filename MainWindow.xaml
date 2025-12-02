@@ -96,7 +96,7 @@
                             <StackPanel x:Name="tarifsBlock" Visibility="Collapsed">
                                 <TextBlock Text="Название" FontSize="20"/>
                                 <TextBox x:Name="tarifName" FontSize="20" Margin="0,0,0,10"/>
-                                <TextBlock Text="Номер" FontSize="20"/>
+                                <TextBlock Text="Цена" FontSize="20"/>
                                 <TextBox x:Name="tarifPrice" FontSize="20" Margin="0,0,0,10"/>
                             </StackPanel>
                         </StackPanel>

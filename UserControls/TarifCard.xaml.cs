@@ -9,7 +9,7 @@ namespace ScooterSharing.UserControls
             InitializeComponent();
             idText.Text = '#' + id.ToString();
             NameText.Text = tarif;
-            priceText.Text = price + " руб/поездка";
+            priceText.Text = price + " руб/мин";
         }
     }
 }
