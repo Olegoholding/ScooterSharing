@@ -13,7 +13,11 @@ namespace ScooterSharing
         //stackPanels = [scootersBlock, pointsBlock, tarifsBlock];
         DataTable dt;
         string TagElem;
-        public MainWindow() => InitializeComponent();
+        public MainWindow()
+        {
+            InitializeComponent();
+            date.Text = DateTime.Now.ToString();
+        }
         protected void HidePanel() => stackPanel.Children.OfType<StackPanel>().ToList().ForEach(rb => rb.Visibility = Visibility.Collapsed);
         protected void DeleteChildren()
         {
